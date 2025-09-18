@@ -1,0 +1,63 @@
+{
+  "nodes": [
+    {"id":"main_gate","name":"Main Gate","lat":13.1950,"lng":77.7060},
+    {"id":"entrance_junction","name":"Entrance Junction","lat":13.1955,"lng":77.7065},
+    {"id":"admin_block1","name":"Admin Block 1","lat":13.1960,"lng":77.7070},
+    {"id":"hostel1","name":"Hostel 1","lat":13.1965,"lng":77.7075},
+    {"id":"academic_block1","name":"Academic Block 1","lat":13.1970,"lng":77.7070},
+    {"id":"academic_block2","name":"Academic Block 2","lat":13.1970,"lng":77.7065},
+    {"id":"library","name":"Library","lat":13.1970,"lng":77.7060},
+    {"id":"cafeteria","name":"Cafeteria","lat":13.1965,"lng":77.7055},
+    {"id":"sports_complex","name":"Sports Complex","lat":13.1975,"lng":77.7067},
+    {"id":"auditorium","name":"Auditorium","lat":13.1962,"lng":77.7062},
+    {"id":"parking_area","name":"Parking Area","lat":13.1952,"lng":77.7062},
+    {"id":"north_junction","name":"North Junction","lat":13.1972,"lng":77.7067},
+    {"id":"east_junction","name":"East Junction","lat":13.1967,"lng":77.7072},
+    {"id":"south_junction","name":"South Junction","lat":13.1962,"lng":77.7067},
+    {"id":"west_junction","name":"West Junction","lat":13.1967,"lng":77.7062},
+    {"id":"center_junction","name":"Center Junction","lat":13.1967,"lng":77.7067}
+  ],
+  "edges": [
+    {"a":"main_gate","b":"entrance_junction","dist":120},
+    {"a":"entrance_junction","b":"parking_area","dist":80},
+    {"a":"entrance_junction","b":"south_junction","dist":150},
+    
+    {"a":"south_junction","b":"west_junction","dist":180},
+    {"a":"west_junction","b":"north_junction","dist":180},
+    {"a":"north_junction","b":"east_junction","dist":180},
+    {"a":"east_junction","b":"south_junction","dist":180},
+    
+    {"a":"south_junction","b":"center_junction","dist":90},
+    {"a":"west_junction","b":"center_junction","dist":90},
+    {"a":"north_junction","b":"center_junction","dist":90},
+    {"a":"east_junction","b":"center_junction","dist":90},
+    
+    {"a":"south_junction","b":"admin_block1","dist":100},
+    {"a":"south_junction","b":"auditorium","dist":80},
+    {"a":"east_junction","b":"hostel1","dist":120},
+    {"a":"east_junction","b":"academic_block1","dist":100},
+    {"a":"north_junction","b":"academic_block1","dist":80},
+    {"a":"north_junction","b":"academic_block2","dist":100},
+    {"a":"north_junction","b":"sports_complex","dist":150},
+    {"a":"west_junction","b":"library","dist":100},
+    {"a":"west_junction","b":"cafeteria","dist":120},
+    
+    {"a":"admin_block1","b":"auditorium","dist":90},
+    {"a":"hostel1","b":"academic_block1","dist":140},
+    {"a":"academic_block1","b":"academic_block2","dist":80},
+    {"a":"academic_block2","b":"library","dist":80},
+    {"a":"library","b":"cafeteria","dist":120},
+    {"a":"cafeteria","b":"parking_area","dist":160},
+    
+    {"a":"center_junction","b":"auditorium","dist":70},
+    {"a":"sports_complex","b":"academic_block1","dist":120},
+    {"a":"sports_complex","b":"academic_block2","dist":100}
+  ],
+  "metadata": {
+    "source":"updated-circular-layout",
+    "centerApprox":[13.1967,77.7067],
+    "lastUpdated":"2025-01-27",
+    "description":"Chanakya University campus with circular road design and central junction system",
+    "layout":"circular_road_with_center_hub"
+  }
+}

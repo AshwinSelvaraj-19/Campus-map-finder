@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chanakya University Campus Map</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="header-title">
+                    <span class="header-icon">🏛️</span>
+                    Chanakya University Campus Map
+                </h1>
+                <div class="header-actions">
+                    <button id="calibrateBtn" class="btn btn-secondary">📐 Calibrate</button>
+                    <button id="adminToggle" class="btn btn-secondary">⚙️ Admin</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Container -->
+        <div class="main-container">
+            <!-- Search Panel -->
+            <div class="search-panel">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search campus locations..." class="search-input">
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+            </div>
+
+            <!-- Map Container -->
+            <div id="map" class="map-container"></div>
+
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <div class="panel-header">
+                    <h3>🤖 Route Finder</h3>
+                </div>
+                
+                <div class="route-controls">
+                    <div class="control-group">
+                        <label for="startSelect">📍 Start Location</label>
+                        <select id="startSelect" class="control-select">
+                            <option value="">Select starting point...</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="endSelect">🎯 Destination</label>
+                        <select id="endSelect" class="control-select">
+                            <option value="">Select destination...</option>
+                        </select>
+                    </div>
+
+                    <button id="findRouteBtn" class="btn btn-primary btn-full">
+                        🚀 Find Route
+                    </button>
+
+                    <button id="clearRouteBtn" class="btn btn-secondary btn-full">
+                        🗑️ Clear Route
+                    </button>
+                </div>
+
+                <div id="routeOutput" class="route-output">
+                    <div class="output-placeholder">
+                        Select start and end locations to find the optimal route
+                    </div>
+                </div>
+
+                <div class="data-controls">
+                    <button id="exportBtn" class="btn btn-outline">📤 Export Data</button>
+                    <button id="importBtn" class="btn btn-outline">📥 Import Data</button>
+                    <input type="file" id="importFile" accept=".json" style="display: none;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Calibration Modal -->
+        <div id="calibrationModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>📐 Calibration Settings</h3>
+                    <button id="closeModal" class="modal-close">&times;</button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="calibration-section">
+                        <h4>Overlay Bounds</h4>
+                        <div class="coords-grid">
+                            <div class="coord-group">
+                                <label>North-West Corner</label>
+                                <input type="number" id="nwLat" placeholder="Latitude" step="0.000001" class="coord-input">
+                                <input type="number" id="nwLng" placeholder="Longitude" step="0.000001" class="coord-input">
+                            </div>
+                            <div class="coord-group">
+                                <label>South-East Corner</label>
+                                <input type="number" id="seLat" placeholder="Latitude" step="0.000001" class="coord-input">
+                                <input type="number" id="seLng" placeholder="Longitude" step="0.000001" class="coord-input">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calibration-section">
+                        <h4>Overlay Controls</h4>
+                        <div class="overlay-controls">
+                            <div class="control-item">
+                                <label>Opacity</label>
+                                <input type="range" id="overlayOpacity" min="0" max="1" step="0.1" value="0.8" class="range-input">
+                                <span id="opacityValue">80%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button id="resetCalibration" class="btn btn-secondary">Reset</button>
+                    <button id="applyCalibration" class="btn btn-primary">Apply</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-spinner"></div>
+            <p>Loading campus map...</p>
+        </div>
+
+        <!-- Toast Notifications -->
+        <div id="toastContainer" class="toast-container"></div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

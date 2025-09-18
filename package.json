@@ -1,0 +1,13 @@
+{
+  "name": "chanakya-campus-map",
+  "version": "1.0.0",
+  "description": "Interactive campus map for Chanakya University",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "serve": "npx serve ."
+  },
+  "keywords": ["campus", "map", "navigation", "leaflet"],
+  "author": "Chanakya University",
+  "license": "MIT"
+}
